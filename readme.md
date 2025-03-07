@@ -94,7 +94,7 @@ Additional dependencies:
 **Outcome:**  
 - Selection of the best points for final waveform extraction.
 
-![Figure 4: Signal Quality Index (SQI) framework for point selection based on respiratory signal quality, showing waveform extraction, PSD computation, and ranking.](figures/4.svg)
+![Figure 4: Signal Quality Index (SQI) framework for point selection based on respiratory signal quality, showing waveform extraction, PSD computation, and ranking.](figures/4.png)
 
 ---
 
@@ -109,7 +109,7 @@ Additional dependencies:
 **Respiratory Waveform Extraction:**  
 - Point trajectories are filtered (using a bandpass filter and PCA) to isolate and extract the dominant respiratory waveform.
 
-![Figure 5: Steps to extract the respiratory waveform from point trajectories, illustrating the fine-scale tracking and subsequent waveform extraction process.](figures/5.svg)
+![Figure 5: Steps to extract the respiratory waveform from point trajectories, illustrating the fine-scale tracking and subsequent waveform extraction process.](figures/5.png)
 
 ---
 
