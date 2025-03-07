@@ -30,7 +30,7 @@ RRPIPs is a novel framework designed to accurately estimate respiratory waveform
 - **Detect and localize subtle respiratory motions** using video magnification and optical flow.
 - **Refine tracking with a Signal Quality Index (SQI)** to pinpoint high-quality respiratory signals.
 - **Extract robust respiratory waveforms** that are clinically relevant for assessing breathing depth, timing, and consistency.
-![Figure 1: An overview of the RRPIPs pipeline showing the coarse-to-fine stages—from motion magnification and ROI extraction to SQI-based point selection and fine-scale tracking.](figures/1.pdf)
+![Figure 1: An overview of the RRPIPs pipeline showing the coarse-to-fine stages—from motion magnification and ROI extraction to SQI-based point selection and fine-scale tracking.](figures/1.svg)
 
 ---
 
@@ -45,7 +45,7 @@ RRPIPs is a novel framework designed to accurately estimate respiratory waveform
 ### Our Approach
 - We reformulate the problem as tracking every point that exhibits respiratory-induced motion across frames—addressing multi-modal inputs and low signal-to-noise challenges.
 
-![Figure 1: Respiratory rate mechanism during inhale and exhale phases; video cameras capture subtle respiration-induced movements.](figures/2.pdf)
+![Figure 1: Respiratory rate mechanism during inhale and exhale phases; video cameras capture subtle respiration-induced movements.](figures/2.svg)
 
 ---
 
@@ -79,7 +79,7 @@ Additional dependencies:
 **Optical Flow Estimation:**  
 - Uses the RAFT model to compute dense pixel displacements and generates heatmaps to isolate high-motion regions (ROIs).
 
-![Figure 3: Optical flow magnification results showing the 1st frame, 2nd frame, and the computed optical flow magnitude between original and magnified frames.](figures/3.pdf)
+![Figure 3: Optical flow magnification results showing the 1st frame, 2nd frame, and the computed optical flow magnitude between original and magnified frames.](figures/3.svg)
 
 ---
 
@@ -94,7 +94,7 @@ Additional dependencies:
 **Outcome:**  
 - Selection of the best points for final waveform extraction.
 
-![Figure 4: Signal Quality Index (SQI) framework for point selection based on respiratory signal quality, showing waveform extraction, PSD computation, and ranking.](figures/4.pdf)
+![Figure 4: Signal Quality Index (SQI) framework for point selection based on respiratory signal quality, showing waveform extraction, PSD computation, and ranking.](figures/4.svg)
 
 ---
 
@@ -109,7 +109,7 @@ Additional dependencies:
 **Respiratory Waveform Extraction:**  
 - Point trajectories are filtered (using a bandpass filter and PCA) to isolate and extract the dominant respiratory waveform.
 
-![Figure 5: Steps to extract the respiratory waveform from point trajectories, illustrating the fine-scale tracking and subsequent waveform extraction process.](figures/5.pdf)
+![Figure 5: Steps to extract the respiratory waveform from point trajectories, illustrating the fine-scale tracking and subsequent waveform extraction process.](figures/5.svg)
 
 ---
 
@@ -124,7 +124,7 @@ Additional dependencies:
 **Key Advantages:**  
 - Robust handling of non-rigid motion and low-texture regions, resulting in high-fidelity waveform reconstruction with low MAE and RMSE.
 
-![Schematic: A diagram of the RRPIPs model architecture highlighting its multi-frame, multi-scale tracking operations.](figures/6.pdf)
+![Schematic: A diagram of the RRPIPs model architecture highlighting its multi-frame, multi-scale tracking operations.](figures/6.svg)
 
 ---
 
@@ -140,11 +140,11 @@ Additional dependencies:
 **Data Annotation:**  
 - A semi-supervised, human-in-the-loop process using RAFT and optical flow-based techniques ensures precise point tracking and trajectory annotation.
 
-![Figure 8: Cropped sample frames from our in-house dataset illustrating the diversity of subjects, camera angles, and regions of interest.](figures/7.1.pdf)
+![Figure 8: Cropped sample frames from our in-house dataset illustrating the diversity of subjects, camera angles, and regions of interest.](figures/7.1.svg)
 
-![Figure 9:  (a) Diversity in RR ranges (b) Diversity in Subjects and Camera POV and exposed RR induced organs](figures/7.2.pdf)
+![Figure 9: (a) Diversity in RR ranges (b) Diversity in Subjects and Camera POV and exposed RR induced organs](figures/7.2.svg)
 
-![Figure 9: A sample data Collection Setting. The camera sensor captures the respiratory movements and the Vernier Belt provides ground truth respiration pressure. The imaginary white line acts as a visualization reference to highlight a subtle abdomen movement.](figures/7.3.pdf)
+![Figure 9: A sample data Collection Setting. The camera sensor captures the respiratory movements and the Vernier Belt provides ground truth respiration pressure.](figures/7.3.svg)
 
 ---
 
@@ -182,7 +182,7 @@ We evaluated RRPIPs against several baseline methods and state-of-the-art approa
 - Adaptation for deployment on edge devices.
 - Enhancing motion separation with global motion analysis (GMA).
 
-![Figure 16: Movement pattern similarity in time and frequency domains for points over the RR pixels, demonstrating the robustness of the tracking.](figures/9.pdf)
+![Figure 16: Movement pattern similarity in time and frequency domains for points over the RR pixels, demonstrating the robustness of the tracking.](figures/9.svg)
 
 ---
 
@@ -195,9 +195,9 @@ We evaluated RRPIPs against several baseline methods and state-of-the-art approa
 **Impact:**  
 - This approach lays the groundwork for advanced contactless respiratory monitoring systems with applications in clinical, sports, and home-care settings.
 
-![Figure 17: Sample tracking in original video resolutions, showing the final selected points for respiratory waveform extraction. Top: Subject 1 tracking points. Bottom: Subject 2 tracking points.](figures/10.1.pdf)
+![Figure 17: Sample tracking in original video resolutions, showing the final selected points for respiratory waveform extraction. Top: Subject 1 tracking points.](figures/10.1.svg)
 
-![Figure 17: Sample tracking in original video resolutions, showing the final selected points for respiratory waveform extraction. Top: Subject 1 tracking points. Bottom: Subject 2 tracking points.](figures/10.2.pdf)
+![Figure 17: Sample tracking in original video resolutions, showing the final selected points for respiratory waveform extraction. Bottom: Subject 2 tracking points.](figures/10.2.svg)
 
 ## Citation
 If you use this code for your research, please cite:
