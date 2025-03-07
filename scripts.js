@@ -121,3 +121,22 @@ if (canvas && ctx) {
         });
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('video');
+    
+    // Force play when loaded
+    video.play().catch(function(error) {
+        console.log("Video play failed:", error);
+    });
+
+    // Ensure video keeps playing
+    video.addEventListener('pause', function() {
+        video.play();
+    });
+
+    // Handle video ending
+    video.addEventListener('ended', function() {
+        video.play();
+    });
+});

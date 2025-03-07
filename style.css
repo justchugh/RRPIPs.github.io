@@ -175,6 +175,18 @@ li {
     margin-top: 30px;
 }
 
+.button-large {
+    padding: 6.5px 13px;  /* 30% larger than original 5px 10px */
+    font-size: 1.3em;     /* 30% larger text */
+    margin: 6.5px 6.5px;  /* 30% larger margins */
+    border-radius: 10px;  /* 30% larger than original 8px */
+    margin-top: 39px;     /* 30% larger than original 30px */
+}
+
+.button-large.button-black {
+    border: 2.6px solid transparent;  /* 30% larger border */
+}
+
 /* Gradient border button with hover effect */
 .button2 {
     display: inline-block;
@@ -254,6 +266,8 @@ li {
 .video-container {
     width: 100%;
     position: relative;
+    height: 100vh; /* Set full viewport height */
+    overflow: hidden;
 }
 
 .inline-video-container {
@@ -268,6 +282,7 @@ li {
     object-fit: cover;
     z-index: 0;
     filter: brightness(50%);
+    opacity: 1; /* Change from 0 to 1 */
 }
 
 .inline-video-container video {
@@ -283,7 +298,28 @@ li {
     position: relative;
     padding: 10px;
     text-color: #fff;
-    text-align: justify;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.video-container .caption .w3-center {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.video-container .caption h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.video-container .caption h4 {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    line-height: 1.4;
 }
 
 /* Paper layer effect */
@@ -429,7 +465,7 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* Footer styling */
