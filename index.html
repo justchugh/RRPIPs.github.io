@@ -10,7 +10,7 @@
             gtag('config', 'G-W2QJ24VBZG');
         </script>
 
-        <title>PointOdyssey: A Large-Scale Synthetic Dataset for Long-Term Point Tracking</title>
+        <title>RRPIPs: Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         
@@ -50,7 +50,10 @@
 
         <a class="anchor top" id="video"></a>
         <div class="video-container" id="container">
-            <iframe id="video" width="100%" height="100%" src="https://www.youtube.com/embed/c21QZnQtGqo?autoplay=1&mute=1&loop=1&playlist=c21QZnQtGqo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <video id="video" muted autoplay loop playsinline preload="auto" style="opacity: 1;">
+                <source src="assets/breathing.mp4#t=0.1" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             
             <div class="caption">
                 <div class="w3-row w3-content" style="max-width:800px; padding-left:5%; padding-right:5%; padding-top:50px">
@@ -59,13 +62,12 @@
                             <tr style="padding:0px">
                                 <td style="padding-top:30%;padding-bottom:30%;vertical-align:middle">
                                     <div class="w3-center">
-                                        <h1>RRPIPs</h1>
-                                        <h4 style="font-size: calc(px + 0.5vw)">Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video</h4>
-                                        <div class="w3-center" style="padding-top:20px;">
-                                            <a class="button button-black" href="https://arxiv.org/abs/2307.15055">Paper</a>
-                                            <a class="button button-black" href="https://drive.google.com/drive/folders/1W6wxsbKbTdtV8-2TwToqa_QgLqRY3ft0?usp=drive_link">Dataset</a>
-                                            <!-- <a class="button button-black" href="https://arxiv.org/abs/2307.15055">Demo</a> -->
-                                            <a class="button button-black" href="https://github.com/justchugh/RRPIPs">Code</a>
+                                        <h1 style="margin-bottom: 20px;">RRPIPs</h1>
+                                        <h4 style="font-size: calc(16px + 0.5vw); margin-bottom: 30px;">Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video</h4>
+                                        <div class="w3-center" style="padding-top:26px;">
+                                            <a class="button button-black button-large" href="#paper">Paper</a>
+                                            <a class="button button-black button-large" href="https://huggingface.co/datasets/justchugh/MPSC-RR">Dataset</a>
+                                            <a class="button button-black button-large" href="https://github.com/mxahan/RRPIPS">Code</a>
                                         </div>
                                     </div>
                                 </td>
@@ -111,7 +113,7 @@
 
                     <ul class="blue-dot-list">
                         <li style="margin-bottom: 10px;">
-                            <strong>In-House Data</strong>: RGB videos from 29 adults (38 sessions, 3-5 minutes each) 
+                            <strong>MPSC-RR</strong>: RGB videos from 23 adults (38 sessions, 3-5 minutes each) 
                             capturing shoulders, abdomen, and chest movements.
                         </li>
                         <li style="margin-bottom: 10px;">
@@ -130,18 +132,173 @@
                 <!-- Download Buttons -->
                 <div class="w3-center" style="margin-bottom: 20px;">
                     <a class="button button2" style="margin: 10px;" 
-                       href="https://ieee-dataport.org/datasets">
-                        <h5 style="margin: 10px;">Download from Dataport</h5>
+                       href="https://huggingface.co/datasets/justchugh/MPSC-RR">
+                        <h5 style="margin: 10px;">Download MPSC-RR</h5>
                     </a>
                     <a class="button button2" style="margin: 10px;" 
-                       href="https://huggingface.co/datasets/justchugh/RRPIPs">
-                        <h5 style="margin: 10px;">Download from HuggingFace</h5>
+                       href="mailto:zhasan3@umbc.edu?subject=Request%20Access%20to%20MPSC-RR%20Dataset&body=Dear%20Research%20Team%2C%0A%0AI%20came%20across%20your%20fascinating%20research%20on%20respiratory%20tracking%20and%20am%20very%20interested%20in%20accessing%20the%20MPSC-RR%20dataset.%0A%0AName%3A%20%0AInstitution%3A%20%0APosition%3A%20%0AResearch%20Purpose%3A%20%0A%0AThank%20you%20for%20considering%20my%20request.%20I%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards%2C%0A">
+                        <h5 style="margin: 10px;">Download Public Data</h5>
                     </a>
                 </div>
             </div>
         </div>
 
 
+
+
+
+
+        <a class="anchor top" id="model"></a>
+        <div class="w3-row-padding w3-content" style="max-width:1200px;">
+            <div class="w3-center">
+                <h2 style="padding-bottom:20px;">RRPIPs Model</h2>
+                <h4>A specialized model for respiratory motion tracking across multiple modalities and scales.</h4>
+                <img style="width:100%; max-width:100%; margin-bottom: 40px;" alt="" src="https://dummyimage.com/1280x720/fff/aaa">
+            </div>
+            <p>RRPIPs is built upon the PIPs++ framework, with adaptations for multimodal generalization (RGB, NIR, IR) and multi-scale tracking to handle coarse global shifts and fine local displacements. Fine-tuned on our curated multimodal respiratory dataset, RRPIPs accurately tracks single-pixel (coarse) and multi-pixel (fine) respiratory displacements continuously across frames, achieving state-of-the-art performance in real-world scenarios.</p>
+            <div class="method-highlight">
+                <p><strong>Our framework operates in three stages:</strong></p>
+                <p class="highlight-text">
+                    <span class="arrow">→</span>
+                    <span class="stage-number">1</span> Respiratory region localization using motion magnification and optical flow <br>
+                    <span class="arrow">→</span>
+                    <span class="stage-number">2</span> Quality respiratory motion localization using coarse-scale tracking and SQI analysis <br>
+                    <span class="arrow">→</span>
+                    <span class="stage-number">3</span> Fine-scale point tracking on upscaled regions
+                </p>
+            </div>
+            <div class="w3-center">
+                <a class="button button2" href="https://github.com/mxahan/RRPIPS"><h5>Clone RRPIPs on GitHub</h5></a>
+            </div>
+        </div>
+
+
+
+
+        <a class="anchor top" id="paper"></a>
+        <div class="w3-light-gray">
+            <div class="w3-content" style="max-width:1200px;">
+                <div class="w3-row-padding">
+                    <div class="w3-center">
+                        <h2>Paper</h2>
+                        <h4><i>Accepted in <b>CHASE 2025</b></i></h4>
+                        <h6>New York City, USA, June 24-26, 2025</h6>
+                    </div>
+                    <div class="pdf-container">
+                        <iframe id="pdf-viewer" class="pdf-viewer" src="assets/RRPIPs.pdf" type="application/pdf"></iframe>
+                    </div>
+                    <h5>Zahid Hasan, Masud Ahmed, Shadman Sakib, Snehalraj Chugh, Md Azim Khan, Abu Zaher MD Faridee, and Nirmalya Roy. <i>RRPIPS: Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video.</i> In ACM/IEEE International Conference on Connected Health: Applications, Systems and Engineering Technologies (CHASE '25), June 24-26, 2025.</h5>
+                    <div class="w3-center">
+                        <a class="button button2" href="#abstract"><h5>Abstract</h5></a>
+                        <a class="button button2" href="assets/RRPIPs.pdf"><h5>Paper PDF</h5></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+
+        <a class="anchor top" id="bibtex"></a>
+        <div class="w3-content" style="max-width:1200px;">
+            <div class="w3-row-padding">
+                <div class="w3-center">
+                    <h2>Bibtex</h2>
+                </div>
+                <div class="bibtex-container">
+                    <pre class="bibtex-code">@inproceedings{rrpips2025,
+author = {Zahid Hasan and Masud Ahmed and Shadman Sakib and Snehalraj Chugh and Md Azim Khan and Abu Zaher MD Faridee and Nirmalya Roy},
+title = {RRPIPs: Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video},
+booktitle = {CHASE},
+year = {2025},
+}</pre>
+                </div>
+            </div>
+
+            <hr>
+
+
+
+            <a class="anchor top" id="team"></a>
+            <div class="w3-row-padding w3-content">
+                <div class="w3-center" style="padding-bottom:30px;">
+                    <h2 style="padding-bottom:20px;">Team</h2>
+                    <div>
+                        <div class="author">
+                            <a href="https://mxahan.github.io/digital-cv/">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Zahid.png" alt="Zahid Hasan" />
+                                </div>
+                                <div>Zahid Hasan</div>
+                            </a>
+                        </div>
+                        <div class="author">
+                            <a href="https://mahmed10.github.io/personalwebpage/">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Masud.png" alt="Masud Ahmed" />
+                                </div>
+                                <div>Masud Ahmed</div>
+                            </a>
+                        </div>
+                        <div class="author">
+                            <a href="https://www.linkedin.com/in/shadman-sakib15/">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Shadman.png" alt="Shadman Sakib" />
+                                </div>
+                                <div>Shadman Sakib</div>
+                            </a>
+                        </div>
+                        <div class="author">
+                            <a href="https://justchugh.github.io">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Snehalraj.png" alt="Snehalraj Chugh" />
+                                </div>
+                                <div>Snehalraj Chugh</div>
+                            </a>
+                        </div>
+                        <div class="author">
+                            <a href="https://www.linkedin.com/in/azim-khan-10/">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Azim.png" alt="Md Azim Khan" />
+                                </div>
+                                <div>Md Azim Khan</div>
+                            </a>
+                        </div>
+                        <div class="author">
+                            <a href="https://azmfaridee.github.io">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Zaher.png" alt="Abu Zaher MD Faridee" />
+                                </div>
+                                <div>Abu Zaher MD Faridee</div>
+                            </a>
+                        </div>
+                        <div class="author">
+                            <a href="https://mpsc.umbc.edu/nroy">
+                                <div class="authorphoto">
+                                    <img src="assets/authors/Nirmalya.png" alt="Nirmalya Roy" />
+                                </div>
+                                <div>Nirmalya Roy</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <hr>
+
+            <a class="anchor top" id="footer"></a>
+            <div class="footer">
+                <div class="w3-center">
+                    <p class="w3-center" style="color:#666;">Copyright © 2025. All rights reserved.</p>
+                    <p><img alt="" src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2019/01/UMBC-primary-logo-RGB.png" style="display: block; margin-left: auto; margin-right: auto; width:200px;"></p>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        
+        
         <!-- <a class="anchor top" id="demo"></a>
         <div class="w3-content" style="max-width:1200px;">
             <div class="w3-row-padding">
@@ -169,138 +326,6 @@
 
 
 
-
-        <a class="anchor top" id="model"></a>
-        <div class="w3-row-padding w3-content" style="max-width:1200px;">
-            <div class="w3-center">
-                <h2 style="padding-bottom:20px;">RRPIPs Model</h2>
-                <h4>A specialized model for respiratory motion tracking across multiple modalities and scales.</h4>
-                <img style="width:100%; max-width:100%; margin-bottom: 40px;" alt="" src="https://dummyimage.com/1280x720/fff/aaa">
-            </div>
-            <p>RRPIPs is built upon the PIPs++ framework, with adaptations for multimodal generalization (RGB, NIR, IR) and multi-scale tracking to handle coarse global shifts and fine local displacements. Fine-tuned on our curated multimodal respiratory dataset, RRPIPs accurately tracks single-pixel (coarse) and multi-pixel (fine) respiratory displacements continuously across frames, achieving state-of-the-art performance in real-world scenarios.</p>
-            <div class="method-highlight">
-                <p><strong>Our framework operates in three stages:</strong></p>
-                <p class="highlight-text">
-                    <span class="arrow">→</span>
-                    <span class="stage-number">1</span> Respiratory region localization using motion magnification and optical flow <br>
-                    <span class="arrow">→</span>
-                    <span class="stage-number">2</span> Quality respiratory motion localization using coarse-scale tracking and SQI analysis <br>
-                    <span class="arrow">→</span>
-                    <span class="stage-number">3</span> Fine-scale point tracking on upscaled regions
-                </p>
-            </div>
-            <div class="w3-center">
-                <a class="button button2" href="https://github.com/justchugh/RRPIPs"><h5>Clone RRPIPs on GitHub</h5></a>
-            </div>
-        </div>
-
-
-
-
-        <a class="anchor top" id="paper"></a>
-        <div class="w3-light-gray">
-            <div class="w3-content" style="max-width:1200px;">
-                <div class="w3-row-padding">
-                    <div class="w3-center">
-                        <h2>Paper</h2>
-                        <h4><i>Published at <b>CHASE 2025</b></i></h4>
-                        <h6>New York City, USA, June 24-26, 2025</h6>
-                    </div>
-                    <div class="pdf-container">
-                        <iframe id="pdf-viewer" class="pdf-viewer" src="assets/RRPIPs.pdf" type="application/pdf"></iframe>
-                    </div>
-                    <h5>Zahid Hasan, et. al. <i>RRPIPS: Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video.</i> 2025 IEEE/ACM Conference on Connected Health: Applications, Systems, and Engineering Technologies (CHASE)</h5>
-                    <div class="w3-center">
-                        <a class="button button2" href="#abstract"><h5>Abstract</h5></a>
-                        <a class="button button2" href="assets/RRPIPs.pdf"><h5>Paper PDF</h5></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-            
-
-        <a class="anchor top" id="bibtex"></a>
-        <div class="w3-content" style="max-width:1200px;">
-            <div class="w3-row-padding">
-                <div class="w3-center">
-                    <h2>Bibtex</h2>
-                </div>
-                <div class="bibtex-container">
-                    <pre class="bibtex-code">@inproceedings{rrpips2025,
-author = {Zahid Hasan, et. al},
-title = {RRPIPS: Respiratory Waveform Reconstruction using Persistent Independent Particles tracking from video},
-booktitle = {Conference acronym 'XX},
-year = {2025}
-}</pre>
-                </div>
-            </div>
-
-            <hr>
-
-
-
-            <a class="anchor top" id="team"></a>
-            <div class="w3-row-padding w3-content">
-                <div class="w3-center" style="padding-bottom:30px;">
-                    <h2 style="padding-bottom:20px;">Team</h2>
-                    <div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>Zahid Hasan</div>
-                            </a>
-                        </div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>X1</div>
-                            </a>
-                        </div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>X2</div>
-                            </a>
-                        </div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>X3</div>
-                            </a>
-                        </div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>X4</div>
-                            </a>
-                        </div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>X5</div>
-                            </a>
-                        </div>
-                        <div class="author">
-                            <a href="#">
-                                <div class="authorphoto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Profile_photo_placeholder_square.svg/512px-Profile_photo_placeholder_square.svg.png?20230910010422" alt="Author Photo"></div>
-                                <div>X6</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <hr>
-
-            <a class="anchor top" id="footer"></a>
-            <div class="footer">
-                <div class="w3-center">
-                    <p class="w3-center" style="color:#666;">Copyright © 2025. All rights reserved.</p>
-                    <p><img alt="" src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2019/01/UMBC-primary-logo-RGB.png" style="display: block; margin-left: auto; margin-right: auto; width:200px;"></p>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
+
