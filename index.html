@@ -23,6 +23,7 @@
         
         <!-- Link to jQuery and external scripts -->
         <script type='text/javascript' src='./assets/jquery-3.7.0.min.js?ver=3.7.0' id='jquery-core-js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
         <script type="text/javascript" src="scripts.js"></script>
     </head>
 
@@ -50,7 +51,14 @@
 
         <a class="anchor top" id="video"></a>
         <div class="video-container" id="container">
-            <video id="video" muted autoplay loop playsinline preload="auto" style="opacity: 1;">
+            <video id="video" 
+                   muted 
+                   autoplay 
+                   loop 
+                   playsinline 
+                   preload="auto" 
+                   style="opacity: 1;"
+                   defaultMuted>
                 <source src="assets/breathing.mp4#t=0.1" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -100,9 +108,11 @@
                     <h4 style="margin-top: 20px; margin-bottom: 30px;">
                         A large-scale multimodal dataset for respiratory point tracking across RGB, NIR, and IR modalities.
                     </h4>
-                    <img style="width:100%; max-width:100%; margin-bottom: 40px;" 
-                         alt="" 
-                         src="https://dummyimage.com/1280x720/fff/aaa">
+                    <img style="width:100%; max-width:100%; margin-bottom: 40px; margin-top: 40px;" 
+                         alt="Dataset visualization" 
+                         src="assets/dataset.gif"
+                         loop="infinite"
+                         autoplay>
                 </div>
 
                 <!-- Main Content -->
@@ -153,7 +163,7 @@
             <div class="w3-center">
                 <h2 style="padding-bottom:20px;">RRPIPs Model</h2>
                 <h4>A specialized model for respiratory motion tracking across multiple modalities and scales.</h4>
-                <img style="width:100%; max-width:100%; margin-bottom: 40px;" alt="" src="https://dummyimage.com/1280x720/fff/aaa">
+                <img style="width:100%; max-width:100%; margin-bottom: 40px; margin-top: 40px;" alt="" src="figures/Model.svg">
             </div>
             <p>RRPIPs is built upon the PIPs++ framework, with adaptations for multimodal generalization (RGB, NIR, IR) and multi-scale tracking to handle coarse global shifts and fine local displacements. Fine-tuned on our curated multimodal respiratory dataset, RRPIPs accurately tracks single-pixel (coarse) and multi-pixel (fine) respiratory displacements continuously across frames, achieving state-of-the-art performance in real-world scenarios.</p>
             <div class="method-highlight">
@@ -287,7 +297,6 @@ year = {2025},
             <hr>
 
             <a class="anchor top" id="footer"></a>
-            <div class="footer">
                 <div class="w3-center">
                     <p class="w3-center" style="color:#666;">Copyright © 2025. All rights reserved.</p>
                     <p><img alt="" src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2019/01/UMBC-primary-logo-RGB.png" style="display: block; margin-left: auto; margin-right: auto; width:200px;"></p>

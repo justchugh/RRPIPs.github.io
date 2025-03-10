@@ -154,6 +154,7 @@ li {
 .topnav a {
     float: right;
     color: #333;
+    font-size: 18px;
     text-align: center;
     padding: 20px 10px;
     text-decoration: underline;

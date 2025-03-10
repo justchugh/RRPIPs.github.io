@@ -1,3 +1,18 @@
+// Add these functions at the top of the file
+function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    if (navLinks.className === "topnav-links") {
+        navLinks.className += " responsive";
+    } else {
+        navLinks.className = "topnav-links";
+    }
+}
+
+function closeMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.className = "topnav-links";
+}
+
 // PDF viewer controls
 const viewer = document.getElementById('pdf-viewer');
 const zoomIn = document.getElementById('zoom-in');
@@ -138,5 +153,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle video ending
     video.addEventListener('ended', function() {
         video.play();
+    });
+
+    if (video) {
+        video.addEventListener('error', function(e) {
+            console.error('Error loading video:', e);
+        });
+        
+        video.play().catch(function(error) {
+            console.log("Video autoplay failed:", error);
+        });
+    }
+    
+    // Check for missing images
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+            console.error('Failed to load image:', img.src);
+            img.src = 'assets/placeholder.png'; // Add a placeholder image
+        };
     });
 });
